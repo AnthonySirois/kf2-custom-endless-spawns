@@ -31,6 +31,7 @@ class KF2_CustomEndlessWaves(object):
         self.zeds_config.setdefault('difficulty', 'hoe')
         self.zeds_config.setdefault('zed_multiplier', 1.0)
         self.zeds_config.setdefault('modded', False)
+        self.zeds_config.setdefault('boss_wave_probability', 1.0)
         self.zeds_config.setdefault('custom_zeds_ratio_policy', lambda n: 1.0)
 
         # zed specific options
@@ -76,7 +77,7 @@ class KF2_CustomEndlessWaves(object):
         
         if self.modded:
             ini_lines.append('bSpawnCustomZeds=True')
-            ini_lines.append('OddsOfBossWave=0.000000')
+            ini_lines.append('OddsOfBossWave={0:.6f}'.format(self.boss_wave_probability))
 
         n_config_lines = len(ini_lines)
 
@@ -87,6 +88,9 @@ class KF2_CustomEndlessWaves(object):
             
             zeds_register_wave.setdefault('num_wave', i + 1)
             num_wave = zeds_register_wave['num_wave']
+
+            ini_lines.append((num_wave, ''))
+            ini_lines.append((num_wave, ';Wave {0} - {1}'.format(num_wave, zeds_register_wave.setdefault("name", "Unnamed"))))
 
             # get or interpolate total number of [all] zeds
             if KF2.is_boss_wave(num_wave):

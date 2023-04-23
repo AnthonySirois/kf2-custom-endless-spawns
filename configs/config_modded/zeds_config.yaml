@@ -7,6 +7,7 @@ n_players: 5
 difficulty: hoe
 zed_multiplier: 2.00
 modded: True
+boss_wave_probability: 0.00
 custom_zeds_ratio_policy: 'make_line_const_interp'
 custom_zeds_ratio_policy_params: [1, 0.975, 20, 0.8]
 
@@ -31,7 +32,7 @@ zeds_register:
     name: Slasher
     spawn_delay: 2.0
     zeds:
-      - zed: Slasher
+      - zed: Prowler
 
   - num_wave: 3
     name: Crawler
