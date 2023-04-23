@@ -7,9 +7,9 @@ class Zed:
     
     
 class KF2_ZEDS:
-    zeds: dict
+    _zeds: dict
 
-    def add_default_zeds(self):
+    def _add_default_zeds(self):
         default_zeds = [
             # small zeds
             Zed(["Clot"], "Clot_Alpha"),
@@ -53,14 +53,16 @@ class KF2_ZEDS:
         
         prefix = 'KFGameContent.KFPawn_Zed'
         for zed in default_zeds:
-            self.zeds.update(dict.fromkeys(zed.aliases, prefix + zed.name))        
+            self._zeds.update(dict.fromkeys(zed.aliases, prefix + zed.name))
+
 
     def zed_alias_to_name(self, name : str) -> str:
-        return self.zeds[name]
+        return self._zeds[name]
+
 
     def __init__(self):
-        self.zeds = {}
-        self.add_default_zeds()
+        self._zeds = {}
+        self._add_default_zeds()
 
 
     
