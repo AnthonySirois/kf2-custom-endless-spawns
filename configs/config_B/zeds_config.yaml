@@ -6,7 +6,7 @@ n_players: 6
 difficulty: hoe
 zed_multiplier: 2.00
 custom_zeds_ratio_policy: 'make_line_const_interp'
-custom_zeds_ratio_policy_params: [[1, 0.975], [20, 0.8]]
+custom_zeds_ratio_policy_params: [1, 0.975, 20, 0.8]
 
 # global (across all waves and zed types) params
 spawn_at_once: 4
