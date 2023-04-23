@@ -148,14 +148,14 @@ class KF2_EndlessUtility(object):
 KF2 = KF2_EndlessUtility
 
 
-def make_line_interp((x0, y0), (x1, y1)):
+def make_line_interp(x0, y0, x1, y1):
     assert x1 != x0
     def f(x):
         return (y1 - y0) * (x - x0) / (x1 - x0) + y0
     return f
 
 
-def make_line_const_interp((x0, y0), (x1, y1)):
+def make_line_const_interp(x0, y0, x1, y1):
     """Same as `make_line_interp`, but extrapolated constantly beyond [x0; x1]."""
     m = min(x0, x1)
     M = max(x0, x1)
@@ -212,14 +212,14 @@ class KF2_CustomEndlessWaves(object):
 
         # output in the specified format
         if markdown:
-            print '| Wave | <div align="center">Name</div> |'
-            print '| :---: | :--- |'
+            print('| Wave | <div align="center">Name</div> |')
+            print('| :---: | :--- |')
 
         for num_wave, name in names:
             if markdown:
-                print '| **{0}** | {1} |'.format(num_wave, name)
+                print('| **{0}** | {1} |'.format(num_wave, name))
             else:
-                print 'Wave {0}: {1}'.format(num_wave, name)
+                print('Wave {0}: {1}'.format(num_wave, name))
 
     def save_ini(self, filename):
         ini_lines = []
