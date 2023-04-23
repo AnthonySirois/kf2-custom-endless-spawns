@@ -56,13 +56,50 @@ class KF2_ZEDS:
             self._zeds.update(dict.fromkeys(zed.aliases, prefix + zed.name))
 
 
+    def _add_zed_variants_mod_zeds(self):
+        modded_zeds = [
+            # small zeds
+            Zed(["MagmaClot"], "magmaclot"),
+            Zed(["Prowler"], "prowler"),
+            Zed(["GreenClot", "HoneyBiscuit"], "honeybiscuit"),
+            Zed(["DemonicClot"], "demonicclot"),
+            Zed(["RedStalker"], "redstalker"),
+            Zed(["DarkCreep"], "darkcreep"),
+            Zed(["MrPelvis"], "mrpelvis"),
+
+            # medium zeds
+            Zed(["GreenBloat"], "greenbloat"),
+            Zed(["RedHusk"], "redhusk"),
+            Zed(["BlueHusk"], "bluehusk"),
+            Zed(["WhiteHusk"], "shocktroop"),
+            Zed(["FireworksHusk", "Sparky"], "sparky"),
+            Zed(["HellfireHusk"], "hellfire"),
+            Zed(["DoomRevenant", "Revenant"], "revenant"),
+
+            # large zeds
+            Zed(["RedScrake"], "redscrake"),
+            Zed(["BlueScrake"], "bluescrake"),
+            Zed(["WerewolfScrake", "Otis", "BossScrake"], "otis"),
+            Zed(["RedFleshpound"], "redfleshpound"),
+            Zed(["DoomBaron", "BaronOfHell", "Baron"], "baronhell"),
+            Zed(["DoomMancubus", "Mancubus"], "mancubus"),
+        ]
+
+        prefix = 'zedcustom.'
+        for zed in modded_zeds:
+            self._zeds.update(dict.fromkeys(zed.aliases, prefix + zed.name))
+
+
     def zed_alias_to_name(self, name : str) -> str:
         return self._zeds[name]
 
 
-    def __init__(self):
+    def __init__(self, include_custom: bool):
         self._zeds = {}
         self._add_default_zeds()
+
+        if include_custom:
+            self._add_zed_variants_mod_zeds()
 
 
     
