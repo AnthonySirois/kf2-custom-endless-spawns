@@ -16,10 +16,12 @@ class KF2_CustomEndlessWaves(object):
             'n_generators': 1
         }
 
+
     @staticmethod
     def zed_options():
         return sorted(KF2_CustomEndlessWaves.default_zed_options().keys())
     
+
     def __init__(self, zeds_config=None):
         self.zeds_config = zeds_config or {}
 
@@ -39,6 +41,7 @@ class KF2_CustomEndlessWaves(object):
 
         self.ini_line_template = 'CustomZeds=(Wave={num_wave},SpawnAtOnce={spawn_at_once},Zed="{zed}",'
         self.ini_line_template += 'Probability={probability},Delay={spawn_delay},MaxSpawns={max_zeds})'
+
 
     def display(self, markdown=False):
         # collect all names

@@ -32,15 +32,15 @@ def main(args):
     if not dirpath.endswith('/'): dirpath += '/'
 
     # load config
-    with open(args.config_path, 'r') as f:
+    with open(args.config_path, 'r') as file:
         try:
-            zeds_config = yaml.safe_load(f)
+            zeds_config = yaml.safe_load(file)
         except yaml.YAMLError as exc:
             print(exc)
 
     # validate ratio policy
-    f = globals()[zeds_config['custom_zeds_ratio_policy']]
-    zeds_config['custom_zeds_ratio_policy'] = f(*zeds_config['custom_zeds_ratio_policy_params'])
+    ratio_policy = globals()[zeds_config['custom_zeds_ratio_policy']]
+    zeds_config['custom_zeds_ratio_policy'] = ratio_policy(*zeds_config['custom_zeds_ratio_policy_params'])
 
     waves = KF2_CustomEndlessWaves(zeds_config)
 
@@ -62,4 +62,5 @@ if __name__ == '__main__':
     parser.add_argument('--txt', action='store_true', help='display wave names')
     parser.add_argument('--markdown', action='store_true', help='display wave names in Markdown format')
     args = parser.parse_args()
+
     main(args)
