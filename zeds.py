@@ -61,7 +61,7 @@ class KF2_ZEDS:
             # small zeds
             Zed(["MagmaClot"], "magmaclot"),
             Zed(["Prowler"], "prowler"),
-            Zed(["GreenClot"], "honeybiscuit"),
+            Zed(["GreenClot", "HoneyBiscuit"], "honeybiscuit"),
             Zed(["DemonicClot"], "demonicclot"),
             Zed(["RedStalker"], "redstalker"),
             Zed(["DarkCreep"], "darkcreep"),
@@ -72,17 +72,17 @@ class KF2_ZEDS:
             Zed(["RedHusk"], "redhusk"),
             Zed(["BlueHusk"], "bluehusk"),
             Zed(["WhiteHusk"], "shocktroop"),
-            Zed(["FireworksHusk"], "sparky"),
+            Zed(["FireworksHusk", "Sparky"], "sparky"),
             Zed(["HellfireHusk"], "hellfire"),
-            Zed(["DoomRevenant"], "revenant"),
+            Zed(["DoomRevenant", "Revenant"], "revenant"),
 
             # large zeds
             Zed(["RedScrake"], "redscrake"),
             Zed(["BlueScrake"], "bluescrake"),
-            Zed(["WerewolfScrake"], "otis"),
+            Zed(["WerewolfScrake", "Otis", "BossScrake"], "otis"),
             Zed(["RedFleshpound"], "redfleshpound"),
-            Zed(["DoomBaron"], "baronhell"),
-            Zed(["DoomMancubus"], "mancubus"),
+            Zed(["DoomBaron", "BaronOfHell", "Baron"], "baronhell"),
+            Zed(["DoomMancubus", "Mancubus"], "mancubus"),
         ]
 
         prefix = 'zedcustom.'
@@ -97,7 +97,7 @@ class KF2_ZEDS:
     def __init__(self, include_custom: bool):
         self._zeds = {}
         self._add_default_zeds()
-        
+
         if include_custom:
             self._add_zed_variants_mod_zeds()
 
