@@ -3,54 +3,7 @@
 import argparse
 import os.path
 import yaml
-
-
-class KF2_ZED(object):
-    # small zeds
-    Clot = 'Clot_Alpha'
-    Rioter = 'Clot_AlphaKing'
-    AlphaClot = 'Clot_Alpha_Versus'
-    Cyst = 'Clot_Cyst'
-    Slasher = 'Clot_Slasher'
-    AlphaSlasher = 'Clot_Slasher_Versus'
-
-    Crawler = 'Crawler'
-    EliteCrawler = 'CrawlerKing'
-    AlphaCrawler = 'Crawler_Versus'
-    Stalker = 'Stalker'
-    AlphaStalker = 'Stalker_Versus'
-    Gorefast = 'Gorefast'
-    AlphaGorefast = 'Gorefast_Versus'
-
-    # medium
-    Gorefiend = 'GorefastDualBlade'
-    Bloat = 'Bloat'
-    AlphaBloat = 'Bloat_Versus'
-    Siren = 'Siren'
-    AlphaSiren = 'Siren_Versus'
-    Husk = 'Husk'
-    AlphaHusk = 'Husk_Versus'
-    Quarterpound = FPMini = MiniFP = FleshpoundMini = MiniFleshpound = 'FleshpoundMini'
-
-    # large
-    Scrake = 'Scrake'
-    AlphaScrake = 'Scrake_Versus'
-    Fleshpound = 'Fleshpound'
-    AlphaFleshpound = 'Fleshpound_Versus'
-
-    # bosses
-    Patriarch = 'Patriarch'
-    AlphaPatriarch = 'Patriarch_Versus'
-    Hans = 'Hans'
-    KingFP = FleshpoundKing = KingFleshpound = 'FleshpoundKing'
-    Abomination = KingBloat = BloatKing = 'BloatKing'
-
-    @staticmethod
-    def to_str(zed):
-        return 'KFGameContent.KFPawn_Zed' + str(zed)
-
-Z = KF2_ZED
-
+import zeds
 
 class KF2_EndlessUtility(object):
     """
@@ -222,6 +175,8 @@ class KF2_CustomEndlessWaves(object):
                 print('Wave {0}: {1}'.format(num_wave, name))
 
     def save_ini(self, filename):
+        zeds_util = zeds.KF2_ZEDS()
+
         ini_lines = []
         ini_lines.append('[ZedVarient.ZedVarient]')
         ini_lines.append('ZedMultiplier={0:.6f}'.format(self.zed_multiplier))
@@ -262,7 +217,7 @@ class KF2_CustomEndlessWaves(object):
                 zed_entry['number'] = int(zed_entry['number'])
                 zed_entry['ratio'] = float(zed_entry['ratio'])
                 zed_entry['n_generators'] = int(zed_entry['n_generators'])
-                zed_entry['zed'] = Z.to_str(getattr(Z, zed_entry['zed']))
+                zed_entry['zed'] = zeds_util.zed_alias_to_name(zed_entry['zed'])
 
                 # sum up all ratios and numbers for proper normalization
                 sum_ratio += zed_entry['ratio']
