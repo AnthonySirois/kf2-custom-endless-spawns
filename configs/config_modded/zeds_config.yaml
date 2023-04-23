@@ -9,7 +9,7 @@ zed_multiplier: 2.00
 modded: True
 boss_wave_probability: 0.00
 custom_zeds_ratio_policy: 'make_line_const_interp'
-custom_zeds_ratio_policy_params: [1, 0.975, 20, 0.825]
+custom_zeds_ratio_policy_params: [1, 1, 15, 1.25]
 
 # global (across all waves and zed types) params
 spawn_at_once: 2
@@ -119,14 +119,194 @@ zeds_register:
         number: 5
         spawn_at_once: 1
 
-- num_wave: 4
+  - num_wave: 5
     name: 'Who needs a boss anyway?'
     zeds:
       - zed: Prowler
         ratio: 4
         n_generators: 2
         spawn_at_once: 4
+      - zed: GreenClot
+        ratio: 2
+        n_generators: 2
+      - zed: DarkCreep
+        ratio: 1
+        n_generators: 2
+      - zed: MrPelvis
+        ratio: 1
+        n_generators: 2
+      - zed: Sparky
+        ratio: 3
+        n_generators: 1
+        spawn_at_once: 3
+      - zed: BlueScrake
+        ratio: 1
+      - zed: RedScrake
+        ratio: 1
+      - zed: Baron
+        number: 10
+      - zed: Revenant
+        number: 10
+      - zed: Otis
+        number: 1
+        delay: 20.0
+        spawn_at_once: 1
+
+  - num_wave: 6
+    name: 'TODO'
+    zeds:
+      - zed: MagmaClot
+        ratio: 4
+        n_generators: 2
+        spawn_at_once: 4
       - zed: Prowler
+        ratio: 2
+        n_generators: 2
+      - zed: MrPelvis
+        ratio: 1.5
+        n_generators: 2
+      - zed: RedStalker
+        ratio: 4
+        n_generators: 4
+      - zed: Sparky
+        ratio: 3
+        n_generators: 3
+      - zed: BlueScrake
+        ratio: 1
+      - zed: RedScrake
+        ratio: 2
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 1
+      - zed: DoomBaron
+        ratio: 0.5
+
+  - num_wave: 7
+    name: 'TODO'
+    zeds:
+      - zed: Prowler
+        ratio: 2
+        n_generators: 2
+      - zed: GreenClot
+        ratio: 5
+        n_generators: 2
+        spawn_at_once: 4
+      - zed: DarkCreep
+        ratio: 1
+      - zed: MrPelvis
+        ratio: 2
+        n_generators: 2
+      - zed: GreenBloat
+        ratio: 1
+      - zed: WhiteHusk
+        ratio: 3
+        n_generators: 3
+      - zed: Sparky
+        ratio: 3
+        n_generators: 3
+      - zed: BlueScrake
+        ratio: 2
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 2
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 1
+      - zed: Revenant
+        ratio: 0.5
+
+  - num_wave: 8
+    name: 'TODO'
+    zeds:
+      - zed: MagmaClot
+        ratio: 4
+        n_generators: 4
+      - zed: Prowler
+        ratio: 4
+        n_generators: 2
+        spawn_at_once: 4
+      - zed: MrPelvis
+        ratio: 1
+      - zed: GreenBloat
+        ratio: 2
+        spawn_at_once: 4
+      - zed: RedStalker
+        ratio: 2
+        n_generators: 2
+      - zed: WhiteHusk
+        ratio: 3
+        n_generators: 3
+      - zed: BlueScrake
+        ratio: 2
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 3
+      - zed: RedFleshpound
+        ratio: 1.5
+      - zed: Revenant
+        ratio: 1
+
+  - num_wave: 9
+    name: 'TODO'
+    zeds:
+      - zed: MagmaClot
+        ratio: 2
+        n_generators: 2
+      - zed: Prowler
+        ratio: 5
+        n_generators: 2
+        spawn_at_once: 6
+      - zed: GreenClot
+        ratio: 2
+        n_generators: 2
+      - zed: DemonicClot
+        ratio: 1
+      - zed: MrPelvis
+        ratio: 2
+        n_generators: 2
+      - zed: DarkCreep
+        ratio: 1
+      - zed: GreenBloat
+        ratio: 1
+        spawn_at_once: 4
+      - zed: WhiteHusk
+        ratio: 3
+        n_generators: 3
+      - zed: Sparky
+        ratio: 1
+      - zed: BlueScrake
+        ratio: 2
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 2
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 3
+      - zed: Baron
+        ratio: 1
+      - zed: Revenant
+        ratio: 1
+
+  - num_wave: 11
+    name: 'Lets start the grinder.'
+    zeds:
+      - zed: Prowler
+        ratio: 18
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: HoneyBiscuit
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: DemonicClot
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: GreenBloat
         ratio: 2
         n_generators: 2
       - zed: DarkCreep
@@ -136,19 +316,394 @@ zeds_register:
         ratio: 2
         n_generators: 2
       - zed: RedStalker
+        ratio: 12
+        n_generators: 2
+      - zed: BlueScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 8
+      - zed: DoomBaron
+        number: 10
+      - zed: HellfireHusk
+        ratio: 8
+        delay: 20.0
+        spawn_at_once: 1
+      - zed: Otis
+        number: 1
+        n_generators: 2
+        
+  - num_wave: 12
+    name: 'Getting hotter !'
+    zeds:
+      - zed: Prowler
+        ratio: 14
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: HoneyBiscuit
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: DemonicClot
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: GreenBloat
+        ratio: 2
+        n_generators: 2
+      - zed: DarkCreep
         ratio: 2
         n_generators: 2
       - zed: WhiteHusk
-        ratio: 2
+        ratio: 4
         n_generators: 2
-      - zed: Sparky
-        ratio: 2
+      - zed: BlueScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 15
         n_generators: 2
       - zed: RedFleshpound
-        ratio: 1
+        ratio: 7
       - zed: DoomBaron
-        number: 10
-      - zed: otis
-        number: 1
+        number: 20
+      - zed: HellfireHusk
+        ratio: 9
         delay: 20.0
         spawn_at_once: 1
+      - zed: Otis
+        number: 1
+        n_generators: 2
+
+  - num_wave: 13
+    name: 'Todo'
+    zeds:
+      - zed: Prowler
+        ratio: 2
+        n_generators: 2
+      - zed: MagmaClot
+        ratio: 4
+        n_generators: 4
+        spawn_at_once: 5
+      - zed: DarkCreep
+        ratio: 2
+        n_generators: 4
+        spawn_at_once: 2
+      - zed: MrPelvis
+        ratio: 1
+        n_generators: 3
+        spawn_at_once: 3
+      - zed: RedStalker
+        ratio: 3
+        n_generators: 5
+        spawn_at_once: 3
+      - zed: GreenClot
+        ratio: 1
+        n_generators: 4
+        spawn_at_once: 3
+      - zed: GreenBloat
+        ratio: 1
+        n_generators: 2
+        spawn_at_once: 2
+      - zed: Sparky
+        ratio: 1
+        n_generators: 2
+        spawn_at_once: 2
+      - zed: BlueScrake
+        ratio: 3
+        n_generators: 2
+        spawn_at_once: 3
+      - zed: RedScrake
+        ratio: 2
+        n_generators: 2
+        spawn_at_once: 3
+      - zed: Otis
+        number: 2
+        n_generators: 1
+        spawn_at_once: 1
+        delay: 30
+      - zed: RedFleshpound
+        number: 2
+        n_generators: 3
+        spawn_at_once: 1
+      - zed: HellfireHusk
+        number: 3
+      - zed: BaronOfHell
+        number: 1
+        spawn_at_once: 1
+      - zed: Revenant
+        number: 5
+        n_generators: 1
+        spawn_at_once: 1
+
+  - num_wave: 14
+    name: 'Todo'
+    zeds:
+      - zed: Prowler
+        ratio: 3
+        n_generators: 2
+      - zed: MagmaClot
+        ratio: 4
+        n_generators: 4
+        spawn_at_once: 5
+      - zed: WhiteHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: GreenClot
+        ratio: 1
+        n_generators: 4
+        spawn_at_once: 3
+      - zed: GreenBloat
+        ratio: 1.5
+        n_generators: 2
+        spawn_at_once: 2
+      - zed: WhiteHusk
+        ratio: 1
+        n_generators: 2
+        spawn_at_once: 3
+      - zed: Sparky
+        ratio: 1
+        n_generators: 2
+        spawn_at_once: 2
+      - zed: BlueScrake
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 1
+      - zed: RedScrake
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 1
+      - zed: Otis
+        number: 3
+        n_generators: 1
+        spawn_at_once: 1
+        delay: 20
+      - zed: RedFleshpound
+        number: 1.5
+        n_generators: 3
+        spawn_at_once: 1
+      - zed: HellfireHusk
+        number: 3
+        n_generators: 2
+        spawn_at_once: 4
+      - zed: BaronOfHell
+        number: 2
+        n_generators: 3
+        spawn_at_once: 1
+      - zed: Revenant
+        ratio: 1
+        n_generators: 3
+        spawn_at_once: 3
+
+  - num_wave: 16
+    name: 'Dawn of the end.'
+    zeds:
+      - zed: Prowler
+        ratio: 18
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: GreenBloat
+        ratio: 5
+        n_generators: 2
+      - zed: RedStalker
+        ratio: 13
+        n_generators: 2
+      - zed: WhiteHusk
+        ratio: 9
+        n_generators: 2
+      - zed: BlueScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 8
+      - zed: DoomBaron
+        number: 30
+      - zed: HellfireHusk
+        ratio: 8
+        delay: 20.0
+        spawn_at_once: 1
+      - zed: Otis
+        number: 5
+        n_generators: 2
+
+  - num_wave: 17
+    name: 'Listen to the heralds.'
+    zeds:
+      - zed: DarkCreep
+        ratio: 6
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: GreenBloat
+        ratio: 8
+        n_generators: 2
+      - zed: MrPelvis
+        ratio: 13
+        n_generators: 2
+      - zed: RedStalker
+        ratio: 16
+        n_generators: 2
+      - zed: WhiteHusk
+        ratio: 11
+        n_generators: 2
+      - zed: Sparky
+        ratio: 9
+        n_generators: 2
+      - zed: BlueScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 13
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 8
+      - zed: DoomBaron
+        number: 40
+      - zed: Otis
+        number: 7
+        n_generators: 2
+
+  - num_wave: 18
+    name: 'First sightings.'
+    zeds:
+      - zed: MagmaClot
+        ratio: 12
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: Prowler
+        ratio: 15
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: HoneyBiscuit
+        ratio: 9
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: GreenBloat
+        ratio: 5
+        n_generators: 2
+      - zed: DarkCreep
+        ratio: 3
+        n_generators: 2
+      - zed: RedStalker
+        ratio: 13
+        n_generators: 2
+      - zed: Mancubus
+        number: 5
+        n_generators: 2
+      - zed: BlueHusk
+        ratio: 4
+        n_generators: 2
+      - zed: WhiteHusk
+        ratio: 9
+        n_generators: 2
+      - zed: BlueScrake
+        ratio: 14
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 14
+        n_generators: 2
+      - zed: RedFleshpound
+        ratio: 12
+      - zed: DoomBaron
+        number: 40
+      - zed: HellfireHusk
+        number: 10
+        delay: 20.0
+        spawn_at_once: 1
+      - zed: Otis
+        number: 7
+        n_generators: 2
+
+  - num_wave: 19
+    name: 'Did you survive that? Good ! Now die.'
+    zeds:
+      - zed: MagmaClot
+        ratio: 20
+        n_generators: 2
+        spawn_at_once: 9
+      - zed: GreenBloat
+        ratio: 6
+        n_generators: 2
+      - zed: DarkCreep
+        ratio: 4
+        n_generators: 2
+      - zed: RedStalker
+        ratio: 9
+        n_generators: 2
+      - zed: Mancubus
+        number: 10
+        n_generators: 2
+      - zed: BlueHusk
+        ratio: 4
+        n_generators: 2
+      - zed: WhiteHusk
+        ratio: 9
+        n_generators: 2
+      - zed: Sparky
+        ratio: 7
+        n_generators: 2
+      - zed: BlueScrake
+        ratio: 14
+        n_generators: 2
+      - zed: RedScrake
+        ratio: 14
+        n_generators: 2
+      - zed: DoomBaron
+        number: 80
+      - zed: HellfireHusk
+        number: 10
+        delay: 20.0
+        spawn_at_once: 1
+      - zed: Otis
+        number: 10
+        n_generators: 2
+
+  - num_wave: 21
+    name: 'We, who are about to die'
+    zeds:
+      - zed: Mancubus
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: RedHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: WhiteHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: BlueHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: BlueScrake
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: RedScrake
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: Otis
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: BaronOfHell
+        ratio: 5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: HellfireHusk
+        ratio: 5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: Revenant
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
