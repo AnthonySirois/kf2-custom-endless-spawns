@@ -113,8 +113,8 @@ class KF2_EndlessUtility(object):
                     1: 0.9,
                     2: 0.95,
                     3: 1.0,
-                    4: 1.05}[(num_wave - 1)/5]
-        return 1.15 + 0.1 * ((num_wave - 26)/5)
+                    4: 1.05}[(num_wave - 1)//5]
+        return 1.15 + 0.1 * ((num_wave - 26)//5)
 
     @staticmethod
     def wave_count_mod(num_wave, difficulty='hoe'):
@@ -160,7 +160,7 @@ def make_line_const_interp(x0, y0, x1, y1):
     m = min(x0, x1)
     M = max(x0, x1)
     def f(x):
-        return make_line_interp((x0, y0), (x1, y1))(M if x > M else m if x < m else x)
+        return make_line_interp(x0, y0, x1, y1)(M if x > M else m if x < m else x)
     return f
 
 
@@ -192,7 +192,7 @@ class KF2_CustomEndlessWaves(object):
 
         # zed specific options
         self.zeds_config.setdefault('zeds_register', [])
-        for attr, value in KF2_CustomEndlessWaves.default_zed_options().iteritems():
+        for attr, value in KF2_CustomEndlessWaves.default_zed_options().items():
             self.zeds_config.setdefault(attr, value)
 
         for attr in self.zeds_config:
@@ -286,7 +286,7 @@ class KF2_CustomEndlessWaves(object):
                                               KF2.spawn_delay(zed_entry['spawn_delay'], num_wave) )
 
                 # generate config lines
-                for _ in xrange(zed_entry['n_generators']):
+                for _ in range(zed_entry['n_generators']):
                     s = self.ini_line_template.format(num_wave=num_wave, max_zeds=max_zeds, **zed_entry)
                     ini_lines.append((num_wave, s))
 
