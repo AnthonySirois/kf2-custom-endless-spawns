@@ -5,20 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Attach using Process Id",
-            "type": "python",
-            "request": "attach",
-            "processId": "${command:pickProcess}",
-            "justMyCode": true            
-        },
-        {
             "name": "Python: main.py",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/main.py",
+            "program": "${workspaceFolder}/src/main.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "args" : ["./configs/config_modded/zeds_config.yaml"]
+            "args" : ["${workspaceFolder}/configs/config_modded/zeds_config.yaml"]
         }
     ]
 }

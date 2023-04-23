@@ -32,7 +32,7 @@ zeds_register:
     name: Slasher
     spawn_delay: 2.0
     zeds:
-      - zed: Slasher
+      - zed: Prowler
 
   - num_wave: 3
     name: Crawler
