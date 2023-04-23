@@ -51,8 +51,9 @@ class KF2_ZEDS:
             Zed(["Abomination", "KingBloat", "BloatKing"], "BloatKing"),
             ]
         
+        prefix = 'KFGameContent.KFPawn_Zed'
         for zed in default_zeds:
-            self.zeds.update(dict.fromkeys(zed.aliases, zed.name))        
+            self.zeds.update(dict.fromkeys(zed.aliases, prefix + zed.name))        
 
     def zed_alias_to_name(self, name : str) -> str:
         return self.zeds[name]
