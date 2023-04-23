@@ -308,7 +308,10 @@ def main(args):
 
     # load config
     with open(args.config_path, 'r') as f:
-        zeds_config = yaml.load(f)
+        try:
+            zeds_config = yaml.safe_load(f)
+        except yaml.YAMLError as exc:
+            print(exc)
 
     # validate ratio policy
     f = globals()[zeds_config['custom_zeds_ratio_policy']]
