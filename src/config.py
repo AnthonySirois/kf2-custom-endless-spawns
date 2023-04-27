@@ -64,18 +64,23 @@ class ValidationError(Exception):
     pass
 
 class ConfigValidator():
+    @staticmethod
     def _validate_property(name: str, type: type, properties: dict):
          if(name not in properties):
             raise KeyError
          if(not isinstance(properties[name], type)):
             raise TypeError
          
+         
+    @staticmethod
     def _set_default_attr(name: str, type: type, default, properties: dict):
         if(name not in properties):
             properties[name] = default
         elif(not isinstance(properties[name], type)):   
             raise TypeError
 
+
+    @staticmethod
     def validate_attributes(properties: dict, attributes: dict):
         is_valid = True
 
@@ -98,6 +103,7 @@ class ConfigValidator():
             raise ValidationError
     
     
+    @staticmethod
     def validate_config(properties: dict):
         ConfigValidator.validate_attributes(properties, _get_main_attributes())
 
@@ -109,11 +115,13 @@ class ConfigValidator():
 
 
 class ConfigHandler():
+    @staticmethod
     def _propagate_undefined_attributes(dest: dict, source: dict, attributes: list):
         for attr in attributes:
             dest.setdefault(attr, source[attr])
 
 
+    @staticmethod
     def _propagate_spawn_attributes(properties: dict):
         for wave in properties['zeds_register']:
             ConfigHandler._propagate_undefined_attributes(wave, properties, _get_shared_attributes())
@@ -122,11 +130,13 @@ class ConfigHandler():
                 ConfigHandler._propagate_undefined_attributes(zed, wave, _get_shared_attributes())
 
 
+    @staticmethod
     def _set_ratio_policy(properties: dict):
         ratio_policy = globals()[properties['custom_zeds_ratio_policy']]
         properties['custom_zeds_ratio_policy'] = ratio_policy(*properties['custom_zeds_ratio_policy_params'])
 
 
+    @staticmethod
     def init_config(properties: dict):
         ConfigValidator.validate_config(properties)
 

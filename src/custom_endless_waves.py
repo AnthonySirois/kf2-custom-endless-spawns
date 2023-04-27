@@ -25,20 +25,6 @@ class KF2_CustomEndlessWaves(object):
     def __init__(self, zeds_config=None):
         self.zeds_config = zeds_config or {}
 
-        # meta parameters
-        self.zeds_config.setdefault('mutator_name', "ZedVarient.ZedVarient")
-        self.zeds_config.setdefault('n_players', 6)
-        self.zeds_config.setdefault('difficulty', 'hoe')
-        self.zeds_config.setdefault('zed_multiplier', 1.0)
-        self.zeds_config.setdefault('modded', False)
-        self.zeds_config.setdefault('boss_wave_probability', 1.0)
-        self.zeds_config.setdefault('custom_zeds_ratio_policy', lambda n: 1.0)
-
-        # zed specific options
-        self.zeds_config.setdefault('zeds_register', [])
-        for attr, value in KF2_CustomEndlessWaves.default_zed_options().items():
-            self.zeds_config.setdefault(attr, value)
-
         for attr in self.zeds_config:
             setattr(self, attr, self.zeds_config[attr])
 
@@ -81,16 +67,11 @@ class KF2_CustomEndlessWaves(object):
 
         n_config_lines = len(ini_lines)
 
-        for i, zeds_register_wave in enumerate(self.zeds_register):
-            # set missing wave-specific options to the global defaults
-            for option in KF2_CustomEndlessWaves.zed_options():
-                zeds_register_wave.setdefault(option, self.zeds_config[option])
-            
-            zeds_register_wave.setdefault('num_wave', i + 1)
+        for zeds_register_wave in self.zeds_register:            
             num_wave = zeds_register_wave['num_wave']
 
             ini_lines.append((num_wave, ''))
-            ini_lines.append((num_wave, ';Wave {0} - {1}'.format(num_wave, zeds_register_wave.setdefault("name", "Unnamed"))))
+            ini_lines.append((num_wave, ';Wave {0} - {1}'.format(num_wave, zeds_register_wave['name'])))
 
             # get or interpolate total number of [all] zeds
             if KF2.is_boss_wave(num_wave):
@@ -108,10 +89,6 @@ class KF2_CustomEndlessWaves(object):
             sum_ratio = 0.
             sum_numbers = 0
             for zed_entry in zeds_register_wave['zeds']:
-
-                # set zed-specific options to the wave-specific defaults    
-                for option in KF2_CustomEndlessWaves.zed_options():
-                    zed_entry.setdefault(option, zeds_register_wave[option])
 
                 # validate params
                 zed_entry['spawn_at_once'] = int(zed_entry['spawn_at_once'])
