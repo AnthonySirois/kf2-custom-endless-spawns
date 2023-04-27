@@ -74,3 +74,6 @@ will gradually decrease the ratio of *custom* from 97.5% at first wave to 82.5% 
 * total number of zeds is estimated from [[wiki]](https://wiki.tripwireinteractive.com/index.php?title=Endless_Mode) using meta parameters `n_players` and `difficulty`, after that multiplied by `zed_multiplier`, and finally computed taking into the account `custom_zeds_ratio_policy`, `custom_zeds_ratio_policy_params`
 * for boss waves, total zed count is estimated by linearly interpolating between the adjacent waves
 * as per [[wiki]](https://wiki.tripwireinteractive.com/index.php?title=Endless_Mode), zeds became to spawn faster in later waves, which was actually way too fast for provided set of waves (causing FPS drop); therefore, the multiplication of all `spawn_delay`s the so-called "spawn delay multipliers" is undone (i.e. divided by); this also enables more transparent control of the spawn delays 
+
+Mutator mod:
+https://steamcommunity.com/sharedfiles/filedetails/?id=2085786712 

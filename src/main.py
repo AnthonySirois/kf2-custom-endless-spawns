@@ -4,26 +4,7 @@ import argparse
 import os.path
 import yaml
 from custom_endless_waves import KF2_CustomEndlessWaves 
-
-def make_line_interp(x0, y0, x1, y1):
-    assert x1 != x0
-    def f(x):
-        return (y1 - y0) * (x - x0) / (x1 - x0) + y0
-    return f
-
-
-def make_line_const_interp(x0, y0, x1, y1):
-    """Same as `make_line_interp`, but extrapolated constantly beyond [x0; x1]."""
-    min_val = min(x0, x1)
-    max_val = max(x0, x1)
-    def f(x):
-        if(x > max_val): 
-            x = max_val
-        elif(x < min_val):
-            x = min_val
-
-        return make_line_interp(x0, y0, x1, y1)(x)
-    return f
+from config import ConfigHandler
 
 
 def main(args):
@@ -31,16 +12,13 @@ def main(args):
     if not dirpath: dirpath = '.'
     if not dirpath.endswith('/'): dirpath += '/'
 
-    # load config
     with open(args.config_path, 'r') as file:
         try:
             zeds_config = yaml.safe_load(file)
         except yaml.YAMLError as exc:
             print(exc)
 
-    # validate ratio policy
-    ratio_policy = globals()[zeds_config['custom_zeds_ratio_policy']]
-    zeds_config['custom_zeds_ratio_policy'] = ratio_policy(*zeds_config['custom_zeds_ratio_policy_params'])
+    ConfigHandler.init_config(zeds_config)
 
     waves = KF2_CustomEndlessWaves(zeds_config)
 
