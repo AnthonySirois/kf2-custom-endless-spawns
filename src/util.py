@@ -77,7 +77,7 @@ class KF2_EndlessUtility(object):
         n = int(x)
         return n
 
-    @staticmethod
+    @staticmethod # TODO Seems to grow in the wrong direction
     def _spawn_rate_modifier_hoe(num_wave: int) -> float:
         return {0: 0.68,
                 1: 0.65,

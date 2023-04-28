@@ -90,8 +90,8 @@ class KF2_ZEDS:
             self._zeds.update(dict.fromkeys(zed.aliases, prefix + zed.name))
 
 
-    def zed_alias_to_name(self, name : str) -> str:
-        return self._zeds[name]
+    def zed_alias_to_name(self, alias : str) -> str:
+        return self._zeds[alias]
 
 
     def __init__(self, include_custom: bool):

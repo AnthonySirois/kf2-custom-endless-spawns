@@ -60,7 +60,7 @@ class TestConfigHandler:
         dest = { }
         source = { "property": "value" }
 
-        ConfigHandler._propagate_undefined_attributes(dest, source, ['property'])
+        ConfigHandler.__propagate_undefined_attributes(dest, source, ['property'])
 
         assert dest['property'] == 'value'
 
@@ -68,7 +68,7 @@ class TestConfigHandler:
         dest = { "property": 'start' }
         source = { 'property': 'value' }
 
-        ConfigHandler._propagate_undefined_attributes(dest, source, ['property'])
+        ConfigHandler.__propagate_undefined_attributes(dest, source, ['property'])
 
         assert dest["property"] == 'start'
         
@@ -76,7 +76,7 @@ class TestConfigHandler:
         properties = TestConfigHandler._get_spawn_attr()
         properties['zeds_register'] = [ {'zeds': [{'zed': "Test"}] } ]
         
-        ConfigHandler._propagate_spawn_attributes(properties)
+        ConfigHandler.__propagate_spawn_attributes(properties)
 
         assert properties["zeds_register"][0]['probability'] == 1.0
 
@@ -91,6 +91,7 @@ class TestConfigHandler:
                 }] 
             } ]
         
-        ConfigHandler._propagate_spawn_attributes(properties)
+        ConfigHandler.__propagate_spawn_attributes(properties)
+        
         assert properties["zeds_register"][0]['probability'] == 2.0
         assert properties["zeds_register"][0]['zeds'][0]['probability'] == 3.0

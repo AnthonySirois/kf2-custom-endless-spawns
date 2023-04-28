@@ -3,24 +3,7 @@ from util import KF2_EndlessUtility
 
 KF2 = KF2_EndlessUtility
 
-class KF2_CustomEndlessWaves(object):
-    """Class encapsulating custom zed waves in KF2 Endless mode."""
-    @staticmethod
-    def default_zed_options():
-        return {
-            'spawn_at_once': 1,
-            'probability': 0.5,
-            'spawn_delay': 15.0,
-            'ratio': 0.0,
-            'number': 0,
-            'n_generators': 1
-        }
-
-
-    @staticmethod
-    def zed_options():
-        return sorted(KF2_CustomEndlessWaves.default_zed_options().keys())
-    
+class KF2_CustomEndlessWaves(object):    
 
     def __init__(self, zeds_config=None):
         self.zeds_config = zeds_config or {}

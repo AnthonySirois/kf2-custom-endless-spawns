@@ -54,9 +54,9 @@ def make_line_const_interp(x0, y0, x1, y1):
         return make_line_interp(x0, y0, x1, y1)(x)
     return f
 
-def constant():
+def constant(x0):
     def f(x):
-        return x
+        return x0
     
     return f
 
@@ -116,22 +116,22 @@ class ConfigValidator():
 
 class ConfigHandler():
     @staticmethod
-    def _propagate_undefined_attributes(dest: dict, source: dict, attributes: list):
+    def __propagate_undefined_attributes(dest: dict, source: dict, attributes: list):
         for attr in attributes:
             dest.setdefault(attr, source[attr])
 
 
     @staticmethod
-    def _propagate_spawn_attributes(properties: dict):
+    def __propagate_spawn_attributes(properties: dict):
         for wave in properties['zeds_register']:
-            ConfigHandler._propagate_undefined_attributes(wave, properties, _get_shared_attributes())
+            ConfigHandler.__propagate_undefined_attributes(wave, properties, _get_shared_attributes())
 
             for zed in wave['zeds']:
-                ConfigHandler._propagate_undefined_attributes(zed, wave, _get_shared_attributes())
+                ConfigHandler.__propagate_undefined_attributes(zed, wave, _get_shared_attributes())
 
 
     @staticmethod
-    def _set_ratio_policy(properties: dict):
+    def __set_ratio_policy(properties: dict):
         ratio_policy = globals()[properties['custom_zeds_ratio_policy']]
         properties['custom_zeds_ratio_policy'] = ratio_policy(*properties['custom_zeds_ratio_policy_params'])
 
@@ -140,7 +140,7 @@ class ConfigHandler():
     def init_config(properties: dict):
         ConfigValidator.validate_config(properties)
 
-        ConfigHandler._set_ratio_policy(properties)
+        ConfigHandler.__set_ratio_policy(properties)
 
-        ConfigHandler._propagate_spawn_attributes(properties)
+        ConfigHandler.__propagate_spawn_attributes(properties)
     
