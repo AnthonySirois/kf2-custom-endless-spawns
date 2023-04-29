@@ -1,3 +1,5 @@
+from util import RatioPolicies
+
 def _get_main_attributes() -> dict:
         return {
             "mutator_name": { "type": str, "default": "ZedCustom.ZedCustomMut" },
@@ -32,33 +34,6 @@ def _get_zed_attributes() -> dict:
 def _get_shared_attributes() -> list:
     return ['probability', 'spawn_delay', 'spawn_at_once', 'n_generators']
 
-
-# Ratio policies
-def make_line_interp(x0, y0, x1, y1):
-    assert x1 != x0
-    def f(x):
-        return (y1 - y0) * (x - x0) / (x1 - x0) + y0
-    return f
-
-
-def make_line_const_interp(x0, y0, x1, y1):
-    """Same as `make_line_interp`, but extrapolated constantly beyond [x0; x1]."""
-    min_val = min(x0, x1)
-    max_val = max(x0, x1)
-    def f(x):
-        if(x > max_val): 
-            x = max_val
-        elif(x < min_val):
-            x = min_val
-
-        return make_line_interp(x0, y0, x1, y1)(x)
-    return f
-
-def constant(x0):
-    def f(x):
-        return x0
-    
-    return f
 
 class ValidationError(Exception):
     pass
@@ -132,8 +107,12 @@ class ConfigHandler():
 
     @staticmethod
     def __set_ratio_policy(properties: dict):
-        ratio_policy = globals()[properties['custom_zeds_ratio_policy']]
-        properties['custom_zeds_ratio_policy'] = ratio_policy(*properties['custom_zeds_ratio_policy_params'])
+        try:
+            ratio_policy = getattr(RatioPolicies, properties['custom_zeds_ratio_policy'])
+            properties['custom_zeds_ratio_policy'] = ratio_policy(*properties['custom_zeds_ratio_policy_params'])
+        except AttributeError:
+            print('ERROR: "{policy}" ratio policy does not exist'.format(policy=properties['custom_zeds_ratio_policy']))
+            raise NotImplementedError()
 
 
     @staticmethod

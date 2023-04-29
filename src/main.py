@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 import argparse
 import os.path
+import sys
 import yaml
 from custom_endless_waves import KF2_CustomEndlessWaves 
-from config import ConfigHandler
+from config import ConfigHandler, ValidationError
 
 
 def main(args):
@@ -18,7 +19,12 @@ def main(args):
         except yaml.YAMLError as exc:
             print(exc)
 
-    ConfigHandler.init_config(zeds_config)
+    try:
+        ConfigHandler.init_config(zeds_config)
+    except ValidationError:
+        sys.exit("There is an error with the config file")
+    except NotImplementedError:
+        sys.exit("There is an error with the config file")
 
     waves = KF2_CustomEndlessWaves(zeds_config)
 

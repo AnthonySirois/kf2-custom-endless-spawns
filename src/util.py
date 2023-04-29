@@ -1,4 +1,34 @@
 
+class RatioPolicies():
+    @staticmethod
+    def make_line_interp(x0, y0, x1, y1):
+        assert x1 != x0
+        def f(x):
+            return (y1 - y0) * (x - x0) / (x1 - x0) + y0
+        return f
+
+
+    @staticmethod
+    def make_line_const_interp(x0, y0, x1, y1):
+        """Same as `make_line_interp`, but extrapolated constantly beyond [x0; x1]."""
+        min_val = min(x0, x1)
+        max_val = max(x0, x1)
+        def f(x):
+            if(x > max_val): 
+                x = max_val
+            elif(x < min_val):
+                x = min_val
+
+            return RatioPolicies.make_line_interp(x0, y0, x1, y1)(x)
+        return f
+
+    @staticmethod
+    def constant(x0):
+        def f(x):
+            return x0
+        
+        return f
+
 class KF2_EndlessUtility(object):
     """
     Utility class with routines to compute zed count,
