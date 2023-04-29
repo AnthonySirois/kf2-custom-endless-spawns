@@ -9,7 +9,7 @@ zed_multiplier: 2.00
 modded: True
 boss_wave_probability: 0.00
 custom_zeds_ratio_policy: 'make_line_const_interp'
-custom_zeds_ratio_policy_params: [1, 1, 15, 1.25]
+custom_zeds_ratio_policy_params: [1, 0.75, 10, 0.9]
 
 # global (across all waves and zed types) params
 spawn_at_once: 2
@@ -24,20 +24,22 @@ zeds_register:
   - num_wave: 1
     name: 'First Blood'
     spawn_delay: 6.0
+    probability: 0.8
     zeds:
       - zed: Prowler
         ratio: 1
-        n_generators: 2 
+        n_generators: 3 
       - zed: MrPelvis
-        ratio: 0.4
-      - zed: DarkCreep
-        ratio: 0.1
+        ratio: 0.2
+      - zed: EliteCrawler
+        ratio: 0.2
       - zed: GreenBloat
         ratio: 0.4
 
   - num_wave: 2
     name: 'Creeping fear'
     spawn_delay: 7.5
+    probability: 0.75
     zeds:
       - zed: MagmaClot
         ratio: 3
@@ -49,7 +51,7 @@ zeds_register:
       - zed: GreenClot
         ratio: 1
       - zed: DarkCreep
-        ratio: 1
+        ratio: 0.5
       - zed: MrPelvis
         ratio: 2
         n_generators: 2
@@ -90,7 +92,7 @@ zeds_register:
         spawn_at_once: 1
 
   - num_wave: 4
-    name: 'Hidding in the shadows of the fireworks'
+    name: 'Hiding in the shadows of the fireworks'
     zeds:
       - zed: MagmaClot
         ratio: 2
@@ -119,41 +121,8 @@ zeds_register:
         number: 5
         spawn_at_once: 1
 
-  - num_wave: 5
-    name: 'Who needs a boss anyway?'
-    zeds:
-      - zed: Prowler
-        ratio: 4
-        n_generators: 2
-        spawn_at_once: 4
-      - zed: GreenClot
-        ratio: 2
-        n_generators: 2
-      - zed: DarkCreep
-        ratio: 1
-        n_generators: 2
-      - zed: MrPelvis
-        ratio: 1
-        n_generators: 2
-      - zed: Sparky
-        ratio: 3
-        n_generators: 1
-        spawn_at_once: 3
-      - zed: BlueScrake
-        ratio: 1
-      - zed: RedScrake
-        ratio: 1
-      - zed: Baron
-        number: 10
-      - zed: Revenant
-        number: 10
-      - zed: Otis
-        number: 1
-        delay: 20.0
-        spawn_at_once: 1
-
   - num_wave: 6
-    name: 'TODO'
+    name: 'Chainsaw massacre'
     zeds:
       - zed: MagmaClot
         ratio: 4
@@ -172,17 +141,17 @@ zeds_register:
         ratio: 3
         n_generators: 3
       - zed: BlueScrake
-        ratio: 1
+        ratio: 0.5
       - zed: RedScrake
+        ratio: 1
+      - zed: Scrake
         ratio: 2
         n_generators: 2
-      - zed: RedFleshpound
-        ratio: 1
-      - zed: DoomBaron
-        ratio: 0.5
+      - zed: Fleshpound
+        number: 6
 
   - num_wave: 7
-    name: 'TODO'
+    name: 'Watch out for the rockets!'
     zeds:
       - zed: Prowler
         ratio: 2
@@ -192,9 +161,11 @@ zeds_register:
         n_generators: 2
         spawn_at_once: 4
       - zed: DarkCreep
-        ratio: 1
-      - zed: MrPelvis
+        ratio: 0.5
+      - zed: EliteCrawler
         ratio: 2
+      - zed: MrPelvis
+        ratio: 1.5
         n_generators: 2
       - zed: GreenBloat
         ratio: 1
@@ -204,19 +175,16 @@ zeds_register:
       - zed: Sparky
         ratio: 3
         n_generators: 3
-      - zed: BlueScrake
-        ratio: 2
+      - zed: Fleshpound
+        ratio: 1
         n_generators: 2
-      - zed: RedScrake
-        ratio: 2
-        n_generators: 2
-      - zed: RedFleshpound
+      - zed: Scrake
         ratio: 1
       - zed: Revenant
-        ratio: 0.5
+        ratio: 1
 
   - num_wave: 8
-    name: 'TODO'
+    name: 'Poundemonium'
     zeds:
       - zed: MagmaClot
         ratio: 4
@@ -234,22 +202,19 @@ zeds_register:
         ratio: 2
         n_generators: 2
       - zed: WhiteHusk
-        ratio: 3
-        n_generators: 3
-      - zed: BlueScrake
         ratio: 2
-        n_generators: 2
-      - zed: RedScrake
-        ratio: 3
-        n_generators: 2
-        spawn_at_once: 3
+        n_generators: 3
+      - zed: Quarterpound
+        ratio: 2
       - zed: RedFleshpound
-        ratio: 1.5
-      - zed: Revenant
         ratio: 1
+      - zed: Fleshpound
+        ratio: 1
+      - zed: DoomBaron
+        number: 4
 
   - num_wave: 9
-    name: 'TODO'
+    name: 'Murder fiesta'
     zeds:
       - zed: MagmaClot
         ratio: 2
@@ -272,22 +237,21 @@ zeds_register:
         ratio: 1
         spawn_at_once: 4
       - zed: WhiteHusk
-        ratio: 3
-        n_generators: 3
+        ratio: 2
+        n_generators: 2
       - zed: Sparky
         ratio: 1
       - zed: BlueScrake
-        ratio: 2
+        ratio: 1
         n_generators: 2
       - zed: RedScrake
-        ratio: 2
+        ratio: 1
         n_generators: 2
       - zed: RedFleshpound
-        ratio: 3
+        ratio: 1.5
         n_generators: 2
-        spawn_at_once: 3
       - zed: Baron
-        ratio: 1
+        ratio: 0.5
       - zed: Revenant
         ratio: 1
 
@@ -334,7 +298,7 @@ zeds_register:
         spawn_at_once: 1
       - zed: Otis
         number: 1
-        n_generators: 2
+        spawn_at_once: 1
         
   - num_wave: 12
     name: 'Getting hotter !'
@@ -376,7 +340,7 @@ zeds_register:
         spawn_at_once: 1
       - zed: Otis
         number: 1
-        n_generators: 2
+        spawn_at_once: 1
 
   - num_wave: 13
     name: 'Todo'
@@ -422,7 +386,6 @@ zeds_register:
         spawn_at_once: 3
       - zed: Otis
         number: 2
-        n_generators: 1
         spawn_at_once: 1
         delay: 30
       - zed: RedFleshpound
