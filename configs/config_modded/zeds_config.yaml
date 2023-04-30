@@ -707,3 +707,47 @@ zeds_register:
         ratio: 2.5
         n_generators: 2
         spawn_at_once: 5
+
+  - num_wave: 36
+    name: 'We, who are about to die'
+    zeds:
+      - zed: Mancubus
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: RedHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: WhiteHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: BlueHusk
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: BlueScrake
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: RedScrake
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: Otis
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: BaronOfHell
+        ratio: 5.0
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: HellfireHusk
+        ratio: 5.0
+        n_generators: 2
+        spawn_at_once: 5
+      - zed: Revenant
+        ratio: 2.5
+        n_generators: 2
+        spawn_at_once: 5

@@ -101,9 +101,10 @@ class KF2_CustomEndlessWaves(object):
                 zed_entry['spawn_at_once'] = min(max_zeds, zed_entry['spawn_at_once'])
                 
                 # undo multiplication by spawn delay multiplier
-                zed_entry['spawn_delay'] *= ( KF2.spawn_delay(zed_entry['spawn_delay'], 1) /
-                                              KF2.spawn_delay(zed_entry['spawn_delay'], num_wave) )
+                zed_entry['spawn_delay'] *= ( KF2.spawn_delay(zed_entry['spawn_delay'], 1, self.difficulty) /
+                                              KF2.spawn_delay(zed_entry['spawn_delay'], num_wave, self.difficulty))
 
+                #
                 # generate config lines
                 for _ in range(zed_entry['n_generators']):
                     s = self.ini_line_template.format(num_wave=num_wave, max_zeds=max_zeds, **zed_entry)
