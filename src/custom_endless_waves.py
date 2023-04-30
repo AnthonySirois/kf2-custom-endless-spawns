@@ -35,7 +35,7 @@ class KF2_CustomEndlessWaves(object):
             else:
                 print('Wave {0}: {1}'.format(num_wave, name))
 
-    # TODO Instead of output a string, output a dict a let another class do the toStr()
+
     def save_ini(self, filename: str):
         zeds_util = KF2_ZEDS(self.modded)
 
